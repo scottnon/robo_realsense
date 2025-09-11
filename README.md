@@ -103,7 +103,7 @@ calculate and deliver control inputs for the car.
 
 First, run the Python script to publish to the topic `/camera/color/image_raw`.
 ```
-python3 rs_color_pub.py
+python3 ros_stream.py
 ```
 
 Next, check that the topic shows up in the list of topics in Ros2, and then echo the data to make sure that the topic 
@@ -119,10 +119,4 @@ Check your frame rate for the topic:
 ros2 topic hz /camera/color/image_raw
 ```
 
-Finally, you can visualize the data stream in `rviz2`:
-
-```
-rviz2
-```
-
-You should be ready to start making Python files to process and utilize your RealSense data now!
+If you see the data stream being echoed in the terminal after the `ros2 topic echo` line above, you should be ready to start making Python files to process and utilize your RealSense data now!
