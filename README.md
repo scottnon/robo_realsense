@@ -85,10 +85,13 @@ Enumerate devices to see the camera listed:
 ```
 rs-enumerate-devices
 ```
-Run the example python script to see the data stream from the RealSense camera:
+Install the Python dependencies, then run the example python script to see the data stream from the RealSense camera:
 ```
+pip install pyrealsense2
 python3 desktop_stream.py
 ```
+If you get any other `module not found` errors in the call for the Python script, simply install the package Python needs using `pip install <package_name>`. The package imports are listed at the beginning of the `ros_stream.py` file.
+
 We now know that the RealSense camera is detected, working properly, and can be interfaced with via Python. Our next step is to 
 publish the RealSense data stream to Ros2 so that subscriber nodes can use the data from the RealSense camera.
 ### Install Ros2 RealSense dependencies
@@ -101,12 +104,10 @@ We can now run a Python file to take data from the RealSense camera and publish 
 you will eventually create a subscriber node that will subscribe to this topic and use the camera data to 
 calculate and deliver control inputs for the car.
 
-Install the dependencies for Python first, then run the Python script to publish to the topic `/camera/color/image_raw`.
+First, run the Python script to publish to the topic `/camera/color/image_raw`.
 ```
-pip install pyrealsense2
 python3 ros_stream.py
 ```
-If you get any other `module not found` errors, simply install the package Python needs using `pip install <package_name>`. The package imports are listed at the beginning of the `ros_stream.py` file.
 
 Next, check that the topic shows up in the list of topics in Ros2, and then echo the data to make sure that the topic 
 is receiving data. You can use Ctrl+C to kill a terminal process, which will be useful to do after running the `ros2 topic echo` command
